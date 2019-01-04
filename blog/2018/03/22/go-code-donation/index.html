@@ -19,6 +19,7 @@
   </head>
 
 
+
 <body class="wrap">
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -116,75 +117,72 @@
 
   <div class="container p-lg-4">
     <main role="main">
-      <div class="jumbotron">
-    <h1>Apache Arrow</h1>
-    <p class="lead">A cross-language development platform for in-memory data</p>
+
+    <h1>
+      A Native Go Library for Apache Arrow
+      <a href="/blog/2018/03/22/go-code-donation/" class="permalink" title="Permalink">∞</a>
+    </h1>
+
+    
+
     <p>
-        <a class="btn btn-lg btn-success" style="white-space: normal;" href="mailto:dev-subscribe@arrow.apache.org" role="button">Join Mailing List</a>
-        <a class="btn btn-lg btn-primary" style="white-space: normal;" href="/install/" role="button">Install (0.11.1 Release - 19 October 2018)</a>
+      <span class="badge badge-secondary">Published</span>
+      <span class="published">
+        22 Mar 2018
+      </span>
+      <br />
+      <span class="badge badge-secondary">By</span>
+      <a href="http://github.com/pmc">The Apache Arrow PMC ()</a>
     </p>
+
+    <!--
+
+-->
+
+<p>Since launching in early 2016, Apache Arrow has been growing fast. We have made
+nine major releases through the efforts of over 120 distinct contributors. The
+project’s scope has also expanded. We began by focusing on the development of
+the standardized in-memory columnar data format, which now serves as a pillar
+of the project. Since then, we have been growing into a more general
+cross-language platform for in-memory data analysis through new additions to
+the project like the <a href="http://arrow.apache.org/blog/2017/08/16/0.6.0-release/">Plasma shared memory object store</a>. A primary goal of
+the project is to enable data system developers to process and move data fast.</p>
+
+<p>So far, we officially have developed native Arrow implementations in C++, Java,
+and JavaScript. We have created binding layers for the C++ libraries in C
+(using the GLib libraries) and Python. We have also seen efforts to develop
+interfaces to the Arrow C++ libraries in Go, Lua, Ruby, and Rust. While binding
+layers serve many purposes, there can be benefits to native implementations,
+and so we’ve been keen to see future work on native implementations in growing
+systems languages like Go and Rust.</p>
+
+<p>This past October, engineers <a href="https://github.com/stuartcarnie">Stuart Carnie</a>, <a href="https://github.com/nathanielc">Nathaniel Cook</a>, and
+<a href="https://github.com/goller">Chris Goller</a>, employees of <a href="https://influxdata.com">InfluxData</a>, began developing a native [Go
+language implementation of the <a href="https://github.com/influxdata/arrow">Apache Arrow</a> in-memory columnar format for
+use in Go-based database systems like InfluxDB. We are excited to announce that
+InfluxData has <a href="https://www.businesswire.com/news/home/20180322005393/en/InfluxData-Announces-Language-Implementation-Contribution-Apache-Arrow">donated this native Go implementation to the Apache Arrow
+project</a>, where it will continue to be developed. This work features
+low-level integration with the Go runtime and native support for SIMD
+instruction sets. We are looking forward to working more closely with the Go
+community on solving in-memory analytics and data interoperability problems.</p>
+
+<div align="center">
+<img src="/img/native_go_implementation.png" alt="Apache Arrow implementations and bindings" width="60%" class="img-responsive" />
 </div>
-<h5>
-  Interested in contributing?
-  <small class="text-muted">Join the <a href="http://mail-archives.apache.org/mod_mbox/arrow-dev/"><strong>mailing list</strong></a> or check out the <a href="https://cwiki.apache.org/confluence/display/ARROW"><strong>developer wiki</strong></a>.</small>
-</h5>
-<h5>
-  <a href="/blog/"><strong>See Latest News</strong></a>
-</h5>
-<p>
-  Apache Arrow is a cross-language development platform for in-memory data. It specifies a standardized language-independent columnar memory format for flat and hierarchical data, organized for efficient analytic operations on modern hardware. It also provides computational libraries and zero-copy streaming messaging and interprocess communication. Languages currently supported include C, C++, Java, JavaScript, Python, and Ruby.
-</p>
-<hr />
-<div class="row">
-  <div class="col-lg-4">
-      <h2 class="mt-3">Fast</h2>
-      <p>Apache Arrow&#8482; enables execution engines to take advantage of the latest SIMD (Single input multiple data) operations included in modern processors, for native vectorized optimization of analytical data processing. Columnar layout is optimized for data locality for better performance on modern hardware like CPUs and GPUs.</p>
-      <p>The Arrow memory format supports <strong>zero-copy reads</strong> for lightning-fast data access without serialization overhead.</p>
-  </div>
-  <div class="col-lg-4">
-      <h2 class="mt-3">Flexible</h2>
-      <p>Arrow acts as a new high-performance interface between various systems. It is also focused on supporting a wide variety of industry-standard programming languages. Java, C, C++, Python, Ruby, and JavaScript implementations are in progress and more languages are welcome.
-      </p>
-  </div>
-  <div class="col-lg-4">
-      <h2 class="mt-3">Standard</h2>
-      <p>Apache Arrow is backed by key developers of 13 major open source projects, including Calcite, Cassandra, Drill, Hadoop, HBase, Ibis, Impala, Kudu, Pandas, Parquet, Phoenix, Spark, and Storm making it the de-facto standard for columnar in-memory analytics.</p>
-      <p>Learn more about projects that are <a href="/powered_by/">Powered By Apache Arrow</a></p>
-  </div>
-</div>
-<hr />
-<div class="row">
-  <div class="col-md-6">
-    <h2>Performance Advantage of Columnar In-Memory</h2>
-    <p class="lead">
-      Columnar memory layout allows applications to avoid unnecessary IO and
-      accelerate analytical processing performance on modern CPUs and GPUs.
-    </p>
-  </div>
-  <div class="col-md-6">
-    <img src="/img/simd.png" alt="SIMD" class="img-fluid mx-auto" />
-  </div>
-</div>
-<hr />
-<h2>Advantages of a Common Data Layer</h2>
-<div class="row">
-  <div class="col-md-6">
-    <img src="img/copy.png" alt="common data layer" class="img-fluid mx-auto" />
-    <ul>
-        <li>Each system has its own internal memory format</li>
-        <li>70-80% computation wasted on serialization and deserialization</li>
-        <li>Similar functionality implemented in multiple projects</li>
-    </ul>
-  </div>
-  <div class="col-md-6">
-    <img src="img/shared.png" alt="common data layer" class="img-fluid mx-auto" />
-    <ul>
-        <li>All systems utilize the same memory format</li>
-        <li>No overhead for cross-system communication</li>
-        <li>Projects can share functionality (eg, Parquet-to-Arrow reader)</li>
-    </ul>
-  </div>
-</div>
+
+<p>One of the mantras in <a href="https://www.apache.org">The Apache Software Foundation</a> is “Community over
+Code”. By building an open and collaborative development community across many
+programming language ecosystems, we will be able to development better and
+longer-lived solutions to the systems problems faced by data developers.</p>
+
+<p>We are excited for what the future holds for the Apache Arrow project. Adding
+first-class support for a popular systems programming language like Go is an
+important step along the way. We welcome others from the Go community to get
+involved in the project. We also welcome others who wish to explore building
+Arrow support for other programming languages not yet represented. Learn more
+at <a href="https://arrow.apache.org">https://arrow.apache.org</a> and join the mailing list
+<a href="https://lists.apache.org/list.html?dev@arrow.apache.org">dev@arrow.apache.org</a>.</p>
+
 
     </main>
 

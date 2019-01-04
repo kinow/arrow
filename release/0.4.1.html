@@ -116,75 +116,86 @@
 
   <div class="container p-lg-4">
     <main role="main">
-      <div class="jumbotron">
-    <h1>Apache Arrow</h1>
-    <p class="lead">A cross-language development platform for in-memory data</p>
-    <p>
-        <a class="btn btn-lg btn-success" style="white-space: normal;" href="mailto:dev-subscribe@arrow.apache.org" role="button">Join Mailing List</a>
-        <a class="btn btn-lg btn-primary" style="white-space: normal;" href="/install/" role="button">Install (0.11.1 Release - 19 October 2018)</a>
-    </p>
-</div>
-<h5>
-  Interested in contributing?
-  <small class="text-muted">Join the <a href="http://mail-archives.apache.org/mod_mbox/arrow-dev/"><strong>mailing list</strong></a> or check out the <a href="https://cwiki.apache.org/confluence/display/ARROW"><strong>developer wiki</strong></a>.</small>
-</h5>
-<h5>
-  <a href="/blog/"><strong>See Latest News</strong></a>
-</h5>
-<p>
-  Apache Arrow is a cross-language development platform for in-memory data. It specifies a standardized language-independent columnar memory format for flat and hierarchical data, organized for efficient analytic operations on modern hardware. It also provides computational libraries and zero-copy streaming messaging and interprocess communication. Languages currently supported include C, C++, Java, JavaScript, Python, and Ruby.
-</p>
-<hr />
-<div class="row">
-  <div class="col-lg-4">
-      <h2 class="mt-3">Fast</h2>
-      <p>Apache Arrow&#8482; enables execution engines to take advantage of the latest SIMD (Single input multiple data) operations included in modern processors, for native vectorized optimization of analytical data processing. Columnar layout is optimized for data locality for better performance on modern hardware like CPUs and GPUs.</p>
-      <p>The Arrow memory format supports <strong>zero-copy reads</strong> for lightning-fast data access without serialization overhead.</p>
-  </div>
-  <div class="col-lg-4">
-      <h2 class="mt-3">Flexible</h2>
-      <p>Arrow acts as a new high-performance interface between various systems. It is also focused on supporting a wide variety of industry-standard programming languages. Java, C, C++, Python, Ruby, and JavaScript implementations are in progress and more languages are welcome.
-      </p>
-  </div>
-  <div class="col-lg-4">
-      <h2 class="mt-3">Standard</h2>
-      <p>Apache Arrow is backed by key developers of 13 major open source projects, including Calcite, Cassandra, Drill, Hadoop, HBase, Ibis, Impala, Kudu, Pandas, Parquet, Phoenix, Spark, and Storm making it the de-facto standard for columnar in-memory analytics.</p>
-      <p>Learn more about projects that are <a href="/powered_by/">Powered By Apache Arrow</a></p>
-  </div>
-</div>
-<hr />
-<div class="row">
-  <div class="col-md-6">
-    <h2>Performance Advantage of Columnar In-Memory</h2>
-    <p class="lead">
-      Columnar memory layout allows applications to avoid unnecessary IO and
-      accelerate analytical processing performance on modern CPUs and GPUs.
-    </p>
-  </div>
-  <div class="col-md-6">
-    <img src="/img/simd.png" alt="SIMD" class="img-fluid mx-auto" />
-  </div>
-</div>
-<hr />
-<h2>Advantages of a Common Data Layer</h2>
-<div class="row">
-  <div class="col-md-6">
-    <img src="img/copy.png" alt="common data layer" class="img-fluid mx-auto" />
-    <ul>
-        <li>Each system has its own internal memory format</li>
-        <li>70-80% computation wasted on serialization and deserialization</li>
-        <li>Similar functionality implemented in multiple projects</li>
-    </ul>
-  </div>
-  <div class="col-md-6">
-    <img src="img/shared.png" alt="common data layer" class="img-fluid mx-auto" />
-    <ul>
-        <li>All systems utilize the same memory format</li>
-        <li>No overhead for cross-system communication</li>
-        <li>Projects can share functionality (eg, Parquet-to-Arrow reader)</li>
-    </ul>
-  </div>
-</div>
+      <!--
+
+-->
+
+<h1 id="apache-arrow-041-9-june-2017">Apache Arrow 0.4.1 (9 June 2017)</h1>
+
+<p>This is primarily a bug fix release, but also includes some packaging and
+documentation improvements.</p>
+
+<p>Read more in the <a href="http://arrow.apache.org/blog/2017/06/14/0.4.1-release/">release blog post</a>.</p>
+
+<h2 id="download">Download</h2>
+
+<ul>
+  <li><a href="https://www.apache.org/dyn/closer.cgi/arrow/arrow-0.4.1/"><strong>Source Artifacts</strong></a></li>
+  <li><a href="https://github.com/apache/arrow/releases/tag/apache-arrow-0.4.1">Git tag 46315431</a></li>
+</ul>
+
+<h1 id="changelog">Changelog</h1>
+
+<h2 id="new-features-and-improvements">New Features and Improvements</h2>
+
+<ul>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1020">ARROW-1020</a> - [Format] Add additional language to Schema.fbs to clarify naive vs. localized Timestamp values</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1034">ARROW-1034</a> - [Python] Enable creation of binary wheels on Windows / MSVC</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1049">ARROW-1049</a> - [java] vector template cleanup</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1060">ARROW-1060</a> - [Python] Add unit test for ARROW-1053</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1063">ARROW-1063</a> - [Website] Blog post and website updates for 0.4.0 release</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1068">ARROW-1068</a> - [Python] Create external repo with appveyor.yml configured for building Python wheel installers</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1069">ARROW-1069</a> - Add instructions for publishing maven artifacts</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1078">ARROW-1078</a> - [Python] Account for PARQUET-967</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1080">ARROW-1080</a> - C++: Add tutorial about converting to/from row-wise representation</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1082">ARROW-1082</a> - [GLib] Add CI on macOS</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1084">ARROW-1084</a> - Implementations of BufferAllocator should handle Netty’s OutOfDirectMemoryError</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-897">ARROW-897</a> - [GLib] Build arrow-glib as a separate build in the Travis CI build matrix</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-986">ARROW-986</a> - [Format] Update IPC.md to account for dictionary batches</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-990">ARROW-990</a> - [JS] Add tslint support for linting TypeScript</li>
+</ul>
+
+<h2 id="bug-fixes">Bug Fixes</h2>
+
+<ul>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1039">ARROW-1039</a> - Python: pyarrow.Filesystem.read_parquet causing error if nthreads&gt;1</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1050">ARROW-1050</a> - [C++] Export arrow::ValidateArray</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1051">ARROW-1051</a> - [Python] If pyarrow.parquet fails to import due to a shared library ABI conflict, the test_parquet.py tests silently do not run</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1056">ARROW-1056</a> - [Python] Parquet+HDFS test failure due to writing pandas index</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1057">ARROW-1057</a> - Fix cmake warning and msvc debug asserts</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1062">ARROW-1062</a> - [GLib] Examples use old API</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1066">ARROW-1066</a> - remove warning on feather for pandas &gt;= 0.20.1</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1070">ARROW-1070</a> - [C++] Feather files for date/time types should be written with the physical types</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1075">ARROW-1075</a> - [GLib] Build error on macOS</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1085">ARROW-1085</a> - [java] Follow up on template cleanup. Missing method for IntervalYear</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1086">ARROW-1086</a> - [Python] pyarrow 0.4.0 on pypi is missing pxd files</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1088">ARROW-1088</a> - [Python] test_unicode_filename test fails when unicode filenames aren’t supported by system</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1090">ARROW-1090</a> - [Python] build_ext usability</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1091">ARROW-1091</a> - Decimal scale and precision are flipped</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1092">ARROW-1092</a> - More Decimal and scale flipped follow-up</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1094">ARROW-1094</a> - [C++] Incomplete buffer reads in arrow::io::ReadableFile should exactly truncate returned buffer</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-424">ARROW-424</a> - [C++] Threadsafety in arrow/io/hdfs.h</li>
+</ul>
+
+<h2 id="contributors">Contributors</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git shortlog <span class="nt">-sn</span> apache-arrow-0.4.0..apache-arrow-0.4.1
+    16  Wes McKinney
+     5  Julien Le Dem
+     4  Kouhei Sutou
+     2  Jacob Scott
+     1  Brian Hulette
+     1  Jeff Knupp
+     1  Jeff Reback
+     1  Max Risuhin
+     1  Phillip Cloud
+     1  Tony Kelman
+     1  Uwe L. Korn
+     1  adeneche
+     1  kimanjun
+     1  rip.nsk
+</code></pre></div></div>
+
 
     </main>
 

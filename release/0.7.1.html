@@ -116,75 +116,79 @@
 
   <div class="container p-lg-4">
     <main role="main">
-      <div class="jumbotron">
-    <h1>Apache Arrow</h1>
-    <p class="lead">A cross-language development platform for in-memory data</p>
-    <p>
-        <a class="btn btn-lg btn-success" style="white-space: normal;" href="mailto:dev-subscribe@arrow.apache.org" role="button">Join Mailing List</a>
-        <a class="btn btn-lg btn-primary" style="white-space: normal;" href="/install/" role="button">Install (0.11.1 Release - 19 October 2018)</a>
-    </p>
-</div>
-<h5>
-  Interested in contributing?
-  <small class="text-muted">Join the <a href="http://mail-archives.apache.org/mod_mbox/arrow-dev/"><strong>mailing list</strong></a> or check out the <a href="https://cwiki.apache.org/confluence/display/ARROW"><strong>developer wiki</strong></a>.</small>
-</h5>
-<h5>
-  <a href="/blog/"><strong>See Latest News</strong></a>
-</h5>
-<p>
-  Apache Arrow is a cross-language development platform for in-memory data. It specifies a standardized language-independent columnar memory format for flat and hierarchical data, organized for efficient analytic operations on modern hardware. It also provides computational libraries and zero-copy streaming messaging and interprocess communication. Languages currently supported include C, C++, Java, JavaScript, Python, and Ruby.
-</p>
-<hr />
-<div class="row">
-  <div class="col-lg-4">
-      <h2 class="mt-3">Fast</h2>
-      <p>Apache Arrow&#8482; enables execution engines to take advantage of the latest SIMD (Single input multiple data) operations included in modern processors, for native vectorized optimization of analytical data processing. Columnar layout is optimized for data locality for better performance on modern hardware like CPUs and GPUs.</p>
-      <p>The Arrow memory format supports <strong>zero-copy reads</strong> for lightning-fast data access without serialization overhead.</p>
-  </div>
-  <div class="col-lg-4">
-      <h2 class="mt-3">Flexible</h2>
-      <p>Arrow acts as a new high-performance interface between various systems. It is also focused on supporting a wide variety of industry-standard programming languages. Java, C, C++, Python, Ruby, and JavaScript implementations are in progress and more languages are welcome.
-      </p>
-  </div>
-  <div class="col-lg-4">
-      <h2 class="mt-3">Standard</h2>
-      <p>Apache Arrow is backed by key developers of 13 major open source projects, including Calcite, Cassandra, Drill, Hadoop, HBase, Ibis, Impala, Kudu, Pandas, Parquet, Phoenix, Spark, and Storm making it the de-facto standard for columnar in-memory analytics.</p>
-      <p>Learn more about projects that are <a href="/powered_by/">Powered By Apache Arrow</a></p>
-  </div>
-</div>
-<hr />
-<div class="row">
-  <div class="col-md-6">
-    <h2>Performance Advantage of Columnar In-Memory</h2>
-    <p class="lead">
-      Columnar memory layout allows applications to avoid unnecessary IO and
-      accelerate analytical processing performance on modern CPUs and GPUs.
-    </p>
-  </div>
-  <div class="col-md-6">
-    <img src="/img/simd.png" alt="SIMD" class="img-fluid mx-auto" />
-  </div>
-</div>
-<hr />
-<h2>Advantages of a Common Data Layer</h2>
-<div class="row">
-  <div class="col-md-6">
-    <img src="img/copy.png" alt="common data layer" class="img-fluid mx-auto" />
-    <ul>
-        <li>Each system has its own internal memory format</li>
-        <li>70-80% computation wasted on serialization and deserialization</li>
-        <li>Similar functionality implemented in multiple projects</li>
-    </ul>
-  </div>
-  <div class="col-md-6">
-    <img src="img/shared.png" alt="common data layer" class="img-fluid mx-auto" />
-    <ul>
-        <li>All systems utilize the same memory format</li>
-        <li>No overhead for cross-system communication</li>
-        <li>Projects can share functionality (eg, Parquet-to-Arrow reader)</li>
-    </ul>
-  </div>
-</div>
+      <!--
+
+-->
+
+<h1 id="apache-arrow-071-1-october-2017">Apache Arrow 0.7.1 (1 October 2017)</h1>
+
+<p>This is a minor bug release. It was motivated by <a href="https://issues.apache.org/jira/browse/ARROW-1601">ARROW-1601</a>, but see the
+complete changelog.</p>
+
+<h2 id="download">Download</h2>
+
+<ul>
+  <li><a href="https://www.apache.org/dyn/closer.cgi/arrow/arrow-0.7.1/"><strong>Source Artifacts</strong></a></li>
+  <li><a href="https://github.com/apache/arrow/releases/tag/apache-arrow-0.7.1">Git tag</a></li>
+</ul>
+
+<h2 id="contributors">Contributors</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git shortlog <span class="nt">-sn</span> apache-arrow-0.7.0..apache-arrow-0.7.1
+    14  Wes McKinney
+     6  Kouhei Sutou
+     3  siddharth
+     2  Paul Taylor
+     2  Uwe L. Korn
+     1  Amir Malekpour
+     1  Bryan Cutler
+     1  Deepak Majeti
+     1  Kentaro Hayashi
+     1  Korn, Uwe
+     1  Li Jin
+     1  Rene Sugar
+     1  Tom Augspurger
+     1  Wataru Shimizu
+     1  m-nakamura145
+     1  rvernica
+</code></pre></div></div>
+
+<h1 id="changelog">Changelog</h1>
+
+<h2 id="new-features-and-improvements">New Features and Improvements</h2>
+
+<ul>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1537">ARROW-1537</a> - [C++] Support building with full path install_name on macOS</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1546">ARROW-1546</a> - [GLib] Support GLib 2.40 again</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1548">ARROW-1548</a> - [GLib] Support build append in builder</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1578">ARROW-1578</a> - [C++/Python] Run lint checks in Travis CI to fail for linting issues as early as possible</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1592">ARROW-1592</a> - [GLib] Add GArrowUIntArrayBuilder</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1608">ARROW-1608</a> - Support Release verification script on macOS</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1612">ARROW-1612</a> - [GLib] add how to install for mac os to README</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-559">ARROW-559</a> - Script to easily verify release in all languages</li>
+</ul>
+
+<h2 id="bug-fixes">Bug Fixes</h2>
+
+<ul>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1497">ARROW-1497</a> - [Java] JsonFileReader doesn’t set value count for some vectors</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1500">ARROW-1500</a> - [C++] Result of ftruncate ignored in MemoryMappedFile::Create</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1529">ARROW-1529</a> - [GLib] Fix failure on macOS on Travis CI</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1536">ARROW-1536</a> - [C++] Do not transitively depend on libboost_system</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1542">ARROW-1542</a> - [C++] Windows release verification script should not modify conda environment</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1544">ARROW-1544</a> - [JS] Export Vector type definitions</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1545">ARROW-1545</a> - Int64Builder should not need int64() as arg</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1550">ARROW-1550</a> - [Python] Fix flaky test on Windows</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1554">ARROW-1554</a> - [Python] Document that pip wheels depend on MSVC14 runtime</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1557">ARROW-1557</a> - [PYTHON] pyarrow.Table.from_arrays doesn’t validate names length</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1591">ARROW-1591</a> - C++: Xcode 9 is not correctly detected</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1595">ARROW-1595</a> - [Python] Fix package dependency issues causing build failures</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1601">ARROW-1601</a> - [C++] READ_NEXT_BITSET reads one byte past the last byte on last iteration</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1606">ARROW-1606</a> - Python: Windows wheels don’t include .lib files.</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1610">ARROW-1610</a> - C++/Python: Only call python-prefix if the default PYTHON_LIBRARY is not present</li>
+  <li><a href="https://issues.apache.org/jira/browse/ARROW-1611">ARROW-1611</a> - Crash in BitmapReader when length is zero</li>
+</ul>
+
 
     </main>
 
